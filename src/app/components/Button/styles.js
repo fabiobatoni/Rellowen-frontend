@@ -18,7 +18,8 @@ export const Container = styled.button`
     border-radius: 10px;
 
     &:disabled{
-        opacity: 0.8;
+        opacity: 0.10;
+        cursor: not-allowed;
     }
 
 `;

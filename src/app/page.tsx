@@ -11,6 +11,7 @@ export default function Home() {
   const [name, setName] = useState<string>("");
   const [qtdPessoas, setQtdPessoas] = useState<string>("");
   const [cidade, setCidade] = useState<string>("");
+  const [desabilitado, setDesabilitado] = useState<boolean>(false);
 
   async function CriarNovoConvidado() {
 
@@ -25,6 +26,8 @@ export default function Home() {
     if(!cidade) {
         return alert("Digite de qual cidade você vem");
     }
+
+    setDesabilitado(true);
 
     await api.post("/convidados", {
         name,
@@ -48,7 +51,10 @@ export default function Home() {
           <Input type="text" placeholder='Quantidade de Pessoas' onChange={(e: { target: { value: SetStateAction<string>; }; }) => setQtdPessoas(e.target.value)}/>
 
            <Input type="text" placeholder='Cidade' onChange={(e: { target: { value: SetStateAction<string>; }; }) => setCidade(e.target.value)}/>
-          <Button onClick={CriarNovoConvidado}/>
+           {
+            desabilitado != true ? <Button onClick={CriarNovoConvidado}/> : <Button disabled />
+           }
+
         </Form>
        </Container>
     </main>
