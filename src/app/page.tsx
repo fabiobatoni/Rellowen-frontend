@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from 'react';
+import { SetStateAction, useState } from 'react';
 import { api } from '../service/api';
 import { Button } from './components/Button';
 import { Input } from "./components/Input";
@@ -43,11 +43,11 @@ export default function Home() {
           <Form>
           <h1>Rêllowen</h1>
           <p>Confirme sua presença</p>
-          <Input type="text" placeholder='Nome' onChange={e => setName(e.target.value)}/>
+          <Input type="text" placeholder='Nome' onChange={(e: { target: { value: SetStateAction<string>; }; }) => setName(e.target.value)}/>
 
-          <Input type="text" placeholder='Quantidade de Pessoas' onChange={e => setQtdPessoas(e.target.value)}/>
+          <Input type="text" placeholder='Quantidade de Pessoas' onChange={(e: { target: { value: SetStateAction<string>; }; }) => setQtdPessoas(e.target.value)}/>
 
-           <Input type="text" placeholder='Cidade' onChange={e => setCidade(e.target.value)}/>
+           <Input type="text" placeholder='Cidade' onChange={(e: { target: { value: SetStateAction<string>; }; }) => setCidade(e.target.value)}/>
           <Button onClick={CriarNovoConvidado}/>
         </Form>
        </Container>
