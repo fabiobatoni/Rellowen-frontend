@@ -33,11 +33,15 @@ export default function Home() {
         name,
         qtdPessoas,
         cidade,
+    })
+    .then(() => {
+      alert("Presença confirmada!");
+
+      window.location.reload();
+    })
+    .catch(err => {
+      console.log(err);
     });
-
-    alert("Presença confirmada!");
-
-    window.location.reload();
 }
 
   return (

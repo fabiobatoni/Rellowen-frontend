@@ -17,12 +17,18 @@ export default function Convidados() {
         fetchMovies()
     })
 
+    let soma = 0;
+    convidados.forEach(function(conv, i) {
+
+        soma += parseInt(conv.qtdPessoas);
+    })
+
     return(
         <Container>
 
             <h1>Lista de Convidados </h1>
 
-            <h2>Confirmados: {convidados.length} </h2>
+            <h2>Confirmados: {soma} </h2>
 
             <Content>
 
